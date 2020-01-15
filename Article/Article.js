@@ -85,6 +85,17 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'I am V grreehh look at my custom drop down box',
+    date: 'December 25th 3033',
+    firstParagraph: `I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG I AM AMMAAAZZZIINNNNGGGGGG  `,
+
+    secondParagraph: `I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP  I NEED SLEEEEEEEPPPPP `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -112,3 +123,48 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+const articles = document.querySelector('.articles');
+function createArt(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+
+const article = document.createElement('div');
+const h2 = document.createElement('h2');
+const pDate = document.createElement('p');
+const p1 = document.createElement('p');
+const p2 = document.createElement('p');
+const p3 = document.createElement('p');
+const expandButton = document.createElement('span');
+
+article.append(h2);
+article.append(pDate);
+article.append(p1);
+article.append(p2);
+article.append(p3);
+article.append(expandButton);
+
+article.classList.add('article');
+pDate.classList.add('date');
+expandButton.classList.add('expandButton');
+
+h2.textContent = title;
+pDate.textContent = date;
+p1.textContent = firstParagraph;
+p2.textContent = secondParagraph;
+p3.textContent = thirdParagraph;
+
+expandButton.textContent = 'Click to Expand';
+expandButton.addEventListener('click', (e) => {
+  article.classList.toggle('article-open')
+})
+return article;
+}
+data.map((article) => {
+  return articles.append(createArt(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph))
+})
+
+
+
+
+
+
