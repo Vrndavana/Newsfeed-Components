@@ -124,35 +124,37 @@ const data = [
 
 */
 
-
+// Target Article 
 const articles = document.querySelector('.articles');
+// Function
 function createArt(title, date, firstParagraph, secondParagraph, thirdParagraph) {
-
+// New Elements
 const article = document.createElement('div');
+// No set up need for ARTICLE 
 const h2 = document.createElement('h2');
 const pDate = document.createElement('p');
 const p1 = document.createElement('p');
 const p2 = document.createElement('p');
 const p3 = document.createElement('p');
 const expandButton = document.createElement('span');
-
+// Setup for Elements
 article.append(h2);
 article.append(pDate);
 article.append(p1);
 article.append(p2);
 article.append(p3);
 article.append(expandButton);
-
+// Classes
 article.classList.add('article');
 pDate.classList.add('date');
 expandButton.classList.add('expandButton');
-
+// Text Content
 h2.textContent = title;
 pDate.textContent = date;
 p1.textContent = firstParagraph;
 p2.textContent = secondParagraph;
 p3.textContent = thirdParagraph;
-
+// Event Listeners 
 expandButton.textContent = 'Click to Expand';
 expandButton.addEventListener('click', (e) => {
   article.classList.toggle('article-open')
